@@ -1,0 +1,120 @@
+﻿@model HomeDetailsViewModel
+@{
+    //Layout = "~/Views/shared/_Layout.cshtml";
+    //Layout = "_Layout";
+    //Layout = null;
+    ViewBag.Title = "學生詳細信息";
+    var photoPath="~/images/" + (Model.Student.PhotoPath??"noimage.jpg");
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Student.Name</h1>
+            </div>
+            <div class="card-body text-center">
+                <img class="card-img-top imagesThumbnail" src=@photoPath asp-append-version="true" />
+            </div>
+            <h4>學生ID : @Model.Student.Id</h4>
+            <h4>郵箱 : @Model.Student.Email</h4>
+            <h4>班級名稱 : @Model.Student.ClassName</h4>
+        </div> 
+        <div class="card-footer text-center">
+            <a asp-controller=""home" asp-action="Index" class="btn btn-primary">返回</a>
+            <a href="#" class="btn btn-primary">編輯</a>
+            <a href="#" class="btn btn-danger">刪除</a>
+        </div>
+    </div>
+</div>
+
+
+@*<h2>@Model.PageTitle</h2>
+<div>
+    姓名 : @Model.Student.Name
+</div>
+<div>
+    班級 : @Model.Student.ClassName
+</div>
+<div>
+    郵件信箱 : @Model.Student.Email
+</div>*@
+
+<!--使用在</body>之前-->
+@section Scripts{ 
+    <script src="~/js/CustomScript.js"></script>
+}
+
+
+
+@*@{
+        ViewData["Title"] = "Details";
+    }
+
+    <h1>Details</h1>*@
+
+
+@*使用ViewData  ViewBag才用
+    @using StudentManagement.Models;*@
+
+@*<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>*@
+@*<body>*@
+@*使用ViewData視圖用法
+    <h3>@ViewData["PageTitle"]</h3>
+
+    @{
+        var student = ViewData["Student"] as Student;
+    }
+    <div>
+        姓名 : @student.Name
+    </div>
+    <div>
+        班級 : @student.ClassName
+    </div>
+    <div>
+        郵件信箱 : @student.Email
+    </div>*@
+
+<!--使用ViewBa視圖g用法-->
+@*<h3>@ViewBag.PageTitle</h3>
+    <div>
+        姓名 : @ViewBag.Student.Name
+    </div>
+    <div>
+        班級 : @ViewBag.Student.ClassName
+    </div>
+    <div>
+        郵件信箱 : @ViewBag.Student.Email
+    </div>*@
+
+<!--使用「強類型視圖」，model 一定要使用小寫m 才會帶出智能提示，訪問模型對象屬性則使用大寫-->
+@*@model StudentManagement.Models.Student
+    <div>
+        姓名 : @Model.Name
+    </div>
+    <div>
+        班級 : @Model.ClassName
+    </div>
+    <div>
+        郵件信箱 : @Model.Email*@
+@*</div>*@
+
+@*@model StudentManagement.ViewModels.HomeDetailsViewModel*@
+@*<body>
+        <h2>@Model.PageTitle</h2>
+        <div>
+            姓名 : @Model.Student.Name
+        </div>
+        <div>
+            班級 : @Model.Student.ClassName
+        </div>
+        <div>
+            郵件信箱 : @Model.Student.Email
+        </div>
+
+    </body>
+    </html>*@
+

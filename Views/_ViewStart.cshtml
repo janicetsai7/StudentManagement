@@ -1,0 +1,13 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<!--_ViewStart.cshtml可用於邏輯判斷如下-->
+@if(User.IsInRole("Admin"))
+{
+    Layout = "_AdminLayout";
+}
+else
+{
+    Layout = "_NoAdminLayout";
+}
